@@ -1,10 +1,10 @@
-#! /bin/bash
-
-if [ $# -ne 1 ]
-then
+#!/bin/bash
+if [ $# -ne 1 ]; then
     echo "Usage: cli <root of project>"
-    exit
+    exit 1
 fi
 
-path=$(readlink -f $1)
+path=$(readlink -f "$1")
+echo "Path: $path"
 gradle cli -Droot="file://$path"
+echo "Gradle command executed"

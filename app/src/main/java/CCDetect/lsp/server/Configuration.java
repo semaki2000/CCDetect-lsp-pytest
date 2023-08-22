@@ -13,8 +13,8 @@ public class Configuration {
 
     private static Configuration instance;
     // Create some sort of map for getting initialization options
-    private String language = "java";
-    private String fragment_query = "(method_declaration) @method (constructor_declaration) @constructor";
+    private String language = "py";
+    private String fragment_query = "(function_definition) @function";
     private int clone_token_threshold = 100;
     private boolean indexGitFilesOnly = true;
     private String[] ignore_nodes = new String[0];

@@ -18,12 +18,12 @@ public class CLI {
         LOGGER.setLevel(Level.OFF);
 
         System.out.println("Running CCDetect-LSP in CLI mode...");
-        Configuration.getInstance().setLanguage("java");
-        Configuration.getInstance().setCloneTokenThreshold(100);
+        Configuration.getInstance().setLanguage("py");
+        Configuration.getInstance().setCloneTokenThreshold(10);
         Configuration.getInstance().setDynamicDetection(false);
         Configuration
             .getInstance()
-            .setFragmentQuery("(method_declaration) @method (constructor_declaration) @constructor");
+            .setFragmentQuery("(function_definition) @function");
 
         // Type-2 tree-sitter node types here
         Configuration
@@ -42,7 +42,7 @@ public class CLI {
 
         DocumentIndex<TreesitterDocumentModel> index = new TreesitterDocumentIndex(
             root,
-            new FiletypeIterator(root, "java")
+            new FiletypeIterator(root, "py")
         );
 
         index.indexProject();
